@@ -12,7 +12,7 @@ Shell script for testing anonymous file share access with Smbclient. Input can b
 # Parsing
 **Input**
 * The script looks for UNC paths by grepping for `'^//.*/.*'`.
-* SMB URLs are identified by grepping for `'^smb://.*/.*'`, and then convering the host and share into a UNC path.
+* SMB URLs are identified by grepping for `'^smb://.*/.*'`, and then converting the host and share into a UNC path.
 * Metasploit smb_enumshares output is identified by grepping for `'^\[+\].*:445'`, excluding IPC shares by grepping for `(I)`, and then converting the host and share into a UNC path.
 
 **Testing**
