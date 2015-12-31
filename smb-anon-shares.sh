@@ -3,12 +3,13 @@
 # 12/30/2015 by tedr@tracesecurity.com
 # Script for checking anonymous share access
 # Read from a list of UNC paths, SMB URLs, or smb_enumshares output
+# 12/31/2015 Changed grep for SMB error from 'failed' to 'tree connect failed'.
 
 varTempRandom=$(( ( RANDOM % 9999 ) + 1 ))
 varTempFile="temp-smbanon-$varTempRandom.txt"
 if [ -f "$varTempFile" ]; then rm $varTempFile; fi
 varDateCreated="12/30/2015"
-varDateLastMod="12/30/2015"
+varDateLastMod="12/31/2015"
 varInFile=""
 varOutFile=""
 varSetOutput="N"
@@ -105,7 +106,7 @@ while read varLine; do
     varTempFile2="temp-smbout-$varTempRandom.txt"
     if [ -f "$varTempFile2" ]; then rm $varTempFile2; fi
     smbclient "$varTarget" -E -N -c ls 2> $varTempFile2
-    varResult=$(cat $varTempFile2 | grep 'failed' | awk -F ':' '{print "[-]" $2}' )
+    varResult=$(cat $varTempFile2 | grep 'tree connect failed' | awk -F ':' '{print "[-]" $2}' )
 
     if [ "$varResult" = "" ]; then
       varFileCount=""

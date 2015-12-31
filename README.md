@@ -17,7 +17,7 @@ Shell script for testing anonymous file share access with Smbclient. Input can b
 
 **Testing**
 * The script connects by using the command `smbclient [target] -E -N -c ls`, redirecting the output to a temp file.
-* The temp file is grepped for `'failed'`, which is used to report the error given.
+* The temp file is grepped for `'tree connect failed'`, which is used to report the error given.
 * If no failure message is found, the temp file will be checked for files and directories before it is deleted.
   * Directories are counted by grepping for `'   D *0'`.
   * Files are counted by grepping for `'   [[:upper:]]* *[[:digit:]]* '`, and then excluding directories.
