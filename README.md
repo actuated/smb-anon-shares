@@ -44,7 +44,7 @@ smb://192.168.1.1/music/
 ```
 # ./smb-anon-shares.sh test.txt -o out.txt
 
-=========[ smb-anon-shares.sh - tedr@tracesecurity.com ]=========
+========[ smb-anon-shares.sh - Ted R (github: actuated) ]========
 
 Reading test.txt for SMB UNC paths.
 SMB URLs and smb_enumshares (DS) results will be converted.

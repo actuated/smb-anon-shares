@@ -1,15 +1,16 @@
 #!/bin/bash
 # smb-anon-shares.sh
-# 12/30/2015 by tedr@tracesecurity.com
+# 12/30/2015 by Ted R (http://github.com/actuated)
 # Script for checking anonymous share access
 # Read from a list of UNC paths, SMB URLs, or smb_enumshares output
 # 12/31/2015 Changed grep for SMB error from 'failed' to 'tree connect failed'.
+# 1/1/2016 - Aesthetic change
 
 varTempRandom=$(( ( RANDOM % 9999 ) + 1 ))
 varTempFile="temp-smbanon-$varTempRandom.txt"
 if [ -f "$varTempFile" ]; then rm $varTempFile; fi
 varDateCreated="12/30/2015"
-varDateLastMod="12/31/2015"
+varDateLastMod="1/1/2015"
 varInFile=""
 varOutFile=""
 varSetOutput="N"
@@ -17,7 +18,7 @@ varSetOutput="N"
 # Help/usage function
 function usage {
   echo
-  echo "=========[ smb-anon-shares.sh - tedr@tracesecurity.com ]========="
+  echo "========[ smb-anon-shares.sh - Ted R (github: actuated) ]========"
   echo
   echo "Loop through a list of SMB shares to see if any allow anonymous"
   echo " access. Input file can contain UNC paths, SMB URLs, or output"
@@ -63,7 +64,7 @@ while [ "$1" != "" ]; do
 done
 
 echo
-echo "=========[ smb-anon-shares.sh - tedr@tracesecurity.com ]========="
+echo "========[ smb-anon-shares.sh - Ted R (github: actuated) ]========"
 echo
 echo "Reading $varInFile for SMB UNC paths."
 echo "SMB URLs and smb_enumshares (DS) results will be converted."
