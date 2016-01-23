@@ -5,12 +5,13 @@
 # Read from a list of UNC paths, SMB URLs, or smb_enumshares output
 # 12/31/2015 Changed grep for SMB error from 'failed' to 'tree connect failed'.
 # 1/1/2016 - Aesthetic change
+# 1/22/2016 - Aesthetic change
 
 varTempRandom=$(( ( RANDOM % 9999 ) + 1 ))
 varTempFile="temp-smbanon-$varTempRandom.txt"
 if [ -f "$varTempFile" ]; then rm $varTempFile; fi
 varDateCreated="12/30/2015"
-varDateLastMod="1/1/2015"
+varDateLastMod="1/22/2015"
 varInFile=""
 varOutFile=""
 varSetOutput="N"
@@ -88,7 +89,7 @@ while read varLine; do
     varTarget="$varLine"
   elif [ "$varCheckURL" != "" ]; then
     varURLHost=""
-    varURLShare=""C
+    varURLShare=""
     varURLHost=$(echo "$varLine" | awk -F '/' '{print $3}')
     varURLShare=$(echo "$varLine" | awk -F '/' '{print $4}')
     varTarget="//$varURLHost/$varURLShare"
